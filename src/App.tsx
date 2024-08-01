@@ -4,17 +4,20 @@ import {
   NotFound
 } from '@/routes/index';
 import NavFooter from '@/layouts/NavFooter';
+import Providers from './components/providers';
 
 function App() {
   return (
-    <Router>
-      <NavFooter>
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="*" element={<NotFound />} />
-        </Routes>
-      </NavFooter>
-    </Router>
+    <Providers>
+      <Router>
+        <NavFooter>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="*" element={<NotFound />} />
+          </Routes>
+        </NavFooter>
+      </Router>
+    </Providers>
   )
 }
 

@@ -8,7 +8,6 @@ import ORGHMainLogoDark from '../../public/logo/dark/col-org-horizontal-dark-log
 import ORGHMainLogoFullDark from '../../public/logo/dark/col-org-horizontal-full-dark.png'
 import VMainLogoFullDark from '../../public/logo/dark/col-vertical-full-dark-logo.png'
 
-
 import HMainLogoFullWhite from '../../public/logo/white/col-horizontal-full-white-logo.png'
 import HMainLogoWhite from '../../public/logo/white/col-horizontal-white-logo.png'
 import VMainLogoWhite from '../../public/logo/white/col-main-vertical-white-logo.png'

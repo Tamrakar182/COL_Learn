@@ -1,6 +1,6 @@
 import React from 'react'
 import App from './App.tsx'
-import './index.css'
+import './styles/index.css'
 import * as ReactDOM from "react-dom/client";
 
 
