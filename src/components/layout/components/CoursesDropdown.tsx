@@ -3,11 +3,12 @@ import clsx from "clsx"
 import React from "react"
 import useDropdown from "@/context/useDropdown"
 import { CiGrid41 } from "react-icons/ci";
-import { Link } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 import Container from "@/components/common/container";
 
 const CoursesDropdown = () => {
     const { coursesDropdown, handleCourses } = useDropdown()
+    const navigate = useNavigate();
     return (
         <div
             onMouseEnter={() => handleCourses(true)}
@@ -21,6 +22,7 @@ const CoursesDropdown = () => {
                             className={clsx(
                                 "relative h-full flex text-black items-center transition-all ease-out duration-200 focus:outline-none"
                             )}
+                            onClick={() => navigate("/courses")}
                         >
                             <div className='hidden h-full md:flex flex-row gap-2 items-center cursor-pointer'>
                                 <CiGrid41 className='w-8 h-8' />
