@@ -3,6 +3,10 @@ import {
   HomePage,
   BrowseCoursesPage,
   CourseDetailsPage,
+
+  SignInPage,
+  RegisterPage,
+
   NotFoundPage,
 } from '@/routes/index';
 import NavFooter from '@/layouts/NavFooter';
@@ -17,6 +21,8 @@ function App() {
             <Route path="/" element={<HomePage />} />
             <Route path="/browse/courses" element={<BrowseCoursesPage />} />
             <Route path="/browse/courses/:id" element={<CourseDetailsPage />} />
+            <Route path="/sign-in" element={<SignInPage />} />
+            <Route path="/register" element={<RegisterPage />} />
             <Route path="*" element={<NotFoundPage />} />
           </Routes>
         </NavFooter>

@@ -37,7 +37,7 @@ export default function HeroSection() {
 
             <div>
                 <BoxReveal boxColor={"#5046e6"} duration={1}>
-                    <img src="/mock/hero_illus.svg" className="max-w-md md:max-w-xl" />
+                    <img src="/mock/hero_illus.svg" className="max-w-[280px] sm:max-w-sm md:max-w-lg" />
                 </BoxReveal>
             </div>
         </div>

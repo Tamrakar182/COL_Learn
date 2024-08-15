@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { FaSearch } from "react-icons/fa";
 import { Logo } from '@/assets';
 import { Button } from "@/components/ui/button";
@@ -6,6 +6,7 @@ import CoursesDropdown from './components/CoursesDropdown';
 import TestsDropdown from './components/TestsDropdown';
 
 const Navbar = () => {
+    const navigate = useNavigate();
     return (
         <nav className="bg-white sticky top-0 z-50">
             <div className='max-w-screen-2xl flex flex-wrap items-center justify-between mx-auto p-4'>
@@ -40,7 +41,7 @@ const Navbar = () => {
                 </div>
                 <div className='flex items-center flex-row gap-6'>
                     <FaSearch className='md:hidden w-6 h-6' />
-                    <Button variant="outline" className='w-full h-full'>Sign In</Button>
+                    <Button onClick={() => navigate("/sign-in")} variant="outline" className='w-full h-full'>Sign In</Button>
                 </div>
             </div>
         </nav >
