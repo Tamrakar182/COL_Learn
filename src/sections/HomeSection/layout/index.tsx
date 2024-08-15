@@ -1,10 +1,10 @@
-import Button from "@/components/common/button";
 import Container from "@/components/common/container"
 import { dummyCourse, categories } from "@/mock/data";
 import { useNavigate } from "react-router-dom";
 import CourseCard from "../components/CourseCard";
 import HeroSection from "../components/HeroSection";
 import IconCloudSection from "../components/IconCloud";
+import { Button } from "@/components/ui/button";
 
 const HomeSection = () => {
     const navigate = useNavigate();
@@ -38,29 +38,29 @@ const HomeSection = () => {
                 <IconCloudSection />
                 <div className="py-12">
                     <p className="text-lg font-bold text-blue-500">100% Free</p>
-                    <p className="text-4xl font-bold">Start Learning with Free Courses</p>
+                    <div className="flex flex-row justify-between">
+                        <p className="text-4xl font-bold">Start Learning with Free Courses</p>
+                        <Button variant="outline" onClick={() => navigate("/browse/courses")}>View All</Button>
+                    </div>
 
                     <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 py-4">
                         {dummyCourse.slice(0, 4).map((item) => (
                             <CourseCard key={item.title} course={item} />
                         ))}
-                    </div>
-                    <div className="flex flex-row gap-4">
-                        <Button onClick={() => navigate("/courses")}>View All</Button>
                     </div>
                 </div>
 
                 <div className="py-12">
                     <p className="text-lg font-bold text-blue-500">100% Free</p>
-                    <p className="text-4xl font-bold">Give a Free Mock Test</p>
+                    <div className="flex flex-row justify-between">
+                        <p className="text-4xl font-bold">Give a Free Mock Test</p>
+                        <Button variant="outline" onClick={() => navigate("/browse/courses")}>View All</Button>
+                    </div>
 
                     <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 py-4">
                         {dummyCourse.slice(0, 4).map((item) => (
                             <CourseCard key={item.title} course={item} />
                         ))}
-                    </div>
-                    <div className="flex flex-row gap-4">
-                        <Button onClick={() => navigate("/courses")}>View All</Button>
                     </div>
                 </div>
 

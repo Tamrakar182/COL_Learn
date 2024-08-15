@@ -24,11 +24,11 @@
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true,
 
-    
     /* Imports */
     "baseUrl": "./src",
     "paths": {
       "@/*": ["./*"],
+      "/*": ["./*", "./public/*"]
     }
   },
   "include": ["src", "vite.config.ts", "**/*.ts", "**/*.tsx"],

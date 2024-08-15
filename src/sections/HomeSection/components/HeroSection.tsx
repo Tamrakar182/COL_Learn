@@ -1,12 +1,12 @@
 import BoxReveal from "@/components/box-reveal";
-import Button from "@/components/common/button";
+import { Button } from "@/components/ui/button";
 
 export default function HeroSection() {
     return (
         <div className="w-full h-full flex flex-col-reverse md:flex-row gap-4 justify-center items-center">
             <div className="h-full w-full flex flex-col max-w-[32rem] items-start justify-center overflow-hidden pt-8">
                 <BoxReveal boxColor={"#5046e6"} duration={1}>
-                    <p className="text-7xl font-semibold">
+                    <p className="text-4xl md:text-7xl font-semibold">
                         COL <span className="text-[#5046e6]">Learn</span>
                     </p>
                 </BoxReveal>
@@ -37,7 +37,7 @@ export default function HeroSection() {
 
             <div>
                 <BoxReveal boxColor={"#5046e6"} duration={1}>
-                    <img src="/mock/hero_illus.svg" />
+                    <img src="/mock/hero_illus.svg" className="max-w-md md:max-w-xl" />
                 </BoxReveal>
             </div>
         </div>

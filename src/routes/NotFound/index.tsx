@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import Container from "@/components/common/container";
 
-const NotFound = () => {
+const NotFoundPage = () => {
     const [contentHeight, setContentHeight] = useState('100vh');
 
     useEffect(() => {
@@ -32,4 +32,4 @@ const NotFound = () => {
     );
 };
 
-export default NotFound;
+export default NotFoundPage;

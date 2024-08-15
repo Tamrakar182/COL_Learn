@@ -22,7 +22,7 @@ const CoursesDropdown = () => {
                             className={clsx(
                                 "relative h-full flex text-black items-center transition-all ease-out duration-200 focus:outline-none"
                             )}
-                            onClick={() => navigate("/courses")}
+                            onClick={() => navigate("/browse/courses")}
                         >
                             <div className='hidden h-full md:flex flex-row gap-2 items-center cursor-pointer'>
                                 <CiGrid41 className='w-8 h-8' />

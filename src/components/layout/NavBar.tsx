@@ -1,21 +1,11 @@
-import { useEffect } from 'react';
-import { Link, useParams } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { FaSearch } from "react-icons/fa";
 import { Logo } from '@/assets';
-import Button from '@/components/common/button';
+import { Button } from "@/components/ui/button";
 import CoursesDropdown from './components/CoursesDropdown';
 import TestsDropdown from './components/TestsDropdown';
-import scrollTop from "@/utills/scrollTop";
 
 const Navbar = () => {
-    const pathname = useParams();
-
-    console.log(pathname);
-
-    useEffect(() => {
-        scrollTop();
-    }, [pathname]);
-
     return (
         <nav className="bg-white sticky top-0 z-50">
             <div className='max-w-screen-2xl flex flex-wrap items-center justify-between mx-auto p-4'>
@@ -50,7 +40,7 @@ const Navbar = () => {
                 </div>
                 <div className='flex items-center flex-row gap-6'>
                     <FaSearch className='md:hidden w-6 h-6' />
-                    <Button>Sign In</Button>
+                    <Button variant="outline" className='w-full h-full'>Sign In</Button>
                 </div>
             </div>
         </nav >
