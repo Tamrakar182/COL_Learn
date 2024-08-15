@@ -3,11 +3,12 @@ import clsx from "clsx"
 import React from "react"
 import useDropdown from "@/context/useDropdown"
 import { FaRegNoteSticky } from "react-icons/fa6";
-import { Link } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 import Container from "@/components/common/container";
 
 const TestsDropdown = () => {
-    const { tests, handleTests } = useDropdown()
+    const { tests, handleTests } = useDropdown();
+    const navigate = useNavigate();
     return (
         <div
             onMouseEnter={() => handleTests(true)}
@@ -21,6 +22,7 @@ const TestsDropdown = () => {
                             className={clsx(
                                 "relative h-full flex text-black items-center transition-all ease-out duration-200 focus:outline-none"
                             )}
+                            onClick={() => navigate("/browse/tests")}
                         >
                             <div className='hidden md:flex flex-row gap-2 items-center cursor-pointer'>
                                 <FaRegNoteSticky className='w-8 h-8' />

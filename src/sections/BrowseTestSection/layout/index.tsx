@@ -1,8 +1,8 @@
 import Container from "@/components/common/container"
-import { dummyCourse } from "@/mock/data";
+import { dummyMockTest } from "@/mock/data";
 import { NavigateBreadcrumbs } from "@/components/navigate-breadcrumbs";
-import CourseCard from "../components/CourseCard"
 import { motion } from "framer-motion";
+import TestCard from "../components/TestCard";
 
 const cardVariants = {
     hidden: { opacity: 0, y: 50 },
@@ -12,20 +12,20 @@ const cardVariants = {
 const links = [
     { href: "/", label: "Home" },
     { href: "/", label: "Browse" },
-    { label: "Courses" },
+    { label: "Tests" },
 ]
 
-const BrowseCoursesSection = () => {
+const BrowseTestSection = () => {
     return (
         <div className=" border-gray-200 dark:bg-white-900 top-0">
             <Container>
                 <NavigateBreadcrumbs items={links} />
                 <div className="py-12">
                     <p className="text-lg font-bold text-blue-500">100% Free</p>
-                    <p className="text-4xl font-bold">Currently Available Courses</p>
+                    <p className="text-4xl font-bold">Mock Tests Available</p>
 
                     <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 py-4">
-                        {dummyCourse.map((item, index) => (
+                        {dummyMockTest.map((item, index) => (
                             <motion.div
                                 key={item.id}
                                 variants={cardVariants}
@@ -35,7 +35,7 @@ const BrowseCoursesSection = () => {
                                 transition={{ duration: 0.5, delay: index * 0.2 }}
                             >
 
-                                <CourseCard key={item.id} course={item} />
+                                <TestCard key={item.id} test={item} />
                             </motion.div>
                         ))}
                     </div>
@@ -45,4 +45,4 @@ const BrowseCoursesSection = () => {
     )
 }
 
-export default BrowseCoursesSection
+export default BrowseTestSection

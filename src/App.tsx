@@ -4,6 +4,8 @@ import {
   BrowseCoursesPage,
   CourseDetailsPage,
 
+  BrowseTestPage,
+
   SignInPage,
   RegisterPage,
 
@@ -21,6 +23,7 @@ function App() {
             <Route path="/" element={<HomePage />} />
             <Route path="/browse/courses" element={<BrowseCoursesPage />} />
             <Route path="/browse/courses/:id" element={<CourseDetailsPage />} />
+            <Route path="/browse/tests" element={<BrowseTestPage />} />
             <Route path="/sign-in" element={<SignInPage />} />
             <Route path="/register" element={<RegisterPage />} />
             <Route path="*" element={<NotFoundPage />} />

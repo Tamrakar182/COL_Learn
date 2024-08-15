@@ -2,6 +2,7 @@ import { Mock } from '@/assets';
 import mock from '@/assets/mock';
 import { CourseType, CourseDetail, CategoryType } from '@/types/course';
 import { ModuleType } from '@/types/module';
+import { TestType } from '@/types/test';
 
 export const dummyCourse: CourseType[] = [
   {
@@ -258,3 +259,91 @@ export const dummyCourseDetail: CourseDetail = {
   nextModule: dummyModules[2].id,
   teacher: 'Dr. Raj Shyam Sherpa',
 };
+
+export const dummyMockTest: TestType[] = [
+  {
+    id: "1",
+    duration: "2 hours",
+    image: Mock.mock3,
+    name: "ILETS Reading Mock Preparation Test",
+    questions: "20"
+  },
+  {
+    id: "2",
+    duration: "3 hours",
+    image: Mock.mock1,
+    name: "Engineering Mock Preparation Test",
+    questions: "100"
+  },
+  {
+    id: "3",
+    duration: "3 hours",
+    image: Mock.mock2,
+    name: "PTE Reading Mock Preparation Test",
+    questions: "20"
+  },
+  {
+    id: "4",
+    duration: "3 hours",
+    image: Mock.mock4,
+    name: "LokSewa Mock Preparation Test",
+    questions: "40"
+  },
+  {
+    id: "9",
+    duration: "2 hours",
+    image: Mock.mock3,
+    name: "ILETS Reading 3 Mock Preparation Test",
+    questions: "20"
+  },
+  {
+    id: "10",
+    duration: "3 hours",
+    image: Mock.mock1,
+    name: "Engineering 3 Mock Preparation Test",
+    questions: "100"
+  },
+  {
+    id: "11",
+    duration: "3 hours",
+    image: Mock.mock2,
+    name: "PTE Reading 3 Mock Preparation Test",
+    questions: "20"
+  },
+  {
+    id: "12",
+    duration: "3 hours",
+    image: Mock.mock4,
+    name: "LokSewa Mock 3 Preparation Test",
+    questions: "40"
+  },
+  {
+    id: "13",
+    duration: "2 hours",
+    image: Mock.mock3,
+    name: "ILETS Reading 4 Mock Preparation Test",
+    questions: "20"
+  },
+  {
+    id: "14",
+    duration: "3 hours",
+    image: Mock.mock1,
+    name: "Engineering 5 Mock Preparation Test",
+    questions: "100"
+  },
+  {
+    id: "7",
+    duration: "3 hours",
+    image: Mock.mock2,
+    name: "PTE Reading 2 Mock Preparation Test",
+    questions: "20"
+  },
+  {
+    id: "8",
+    duration: "3 hours",
+    image: Mock.mock4,
+    name: "LokSewa 2 Mock Preparation Test",
+    questions: "40"
+  }
+
+]
