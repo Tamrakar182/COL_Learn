@@ -3,12 +3,9 @@ import Footer from '@/components/layout/Footer'
 import { useEffect } from 'react'
 import scrollTop from '@/utils/scrollTop'
 import { useLocation } from 'react-router-dom'
+import { Outlet } from 'react-router-dom';
 
-interface Props {
-    children: React.ReactNode
-}
-
-function NavFooter({ children }: Props) {
+function NavFooter() {
     const location = useLocation();
 
     useEffect(() => scrollTop(), [location]);
@@ -16,7 +13,7 @@ function NavFooter({ children }: Props) {
     return (
         <>
             <Navbar />
-            {children}
+            <Outlet />
             <Footer />
         </>
     )

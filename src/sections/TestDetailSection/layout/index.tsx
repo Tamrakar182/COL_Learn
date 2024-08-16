@@ -5,15 +5,18 @@ import { Button } from '@/components/ui/button';
 import TestBanner from "../components/TestBanner";
 import { Badge } from "@/components/ui/badge";
 import parse from 'html-react-parser';
+import { useNavigate } from "react-router-dom";
 
 interface Props {
     testDetail: TestDetailType
 }
 
 const TestDetailSection = ({ testDetail }: Props) => {
+    const navigate = useNavigate();
+
     const links = [
         { href: "/", label: "Home" },
-        { href: "/", label: "Browse" },
+        { href: "/browse", label: "Browse" },
         { href: "/browse/tests", label: "Tests" },
         { label: testDetail.name },
     ]
@@ -55,14 +58,20 @@ const TestDetailSection = ({ testDetail }: Props) => {
                                 <li>All the best!</li>
                             </ul>
 
-                            <Button className="md:flex bg-[#3b82f6] hover:bg-[#3b83f672] hidden text-xl rounded-none my-8">
+                            <Button
+                                onClick={() => navigate(`/browse/tests/${testDetail.id}/start`)}
+                                className="md:flex bg-[#3b82f6] hover:bg-[#3b83f672] hidden text-xl rounded-none my-8"
+                            >
                                 Take the Test
                             </Button>
                         </div>
                     </div>
                 </div>
             </Container>
-            <Button className="md:hidden bg-[#3b82f6] hover:bg-[#3b83f672] text-3xl rounded-none py-8 w-full fixed bottom-0">
+            <Button
+                onClick={() => navigate(`/browse/tests/${testDetail.id}/start`)}
+                className="md:hidden bg-[#3b82f6] hover:bg-[#3b83f672] text-3xl rounded-none py-8 w-full fixed bottom-0"
+            >
                 Start Test
             </Button>
         </>

@@ -1,8 +1,10 @@
 import BoxReveal from "@/components/box-reveal";
 import { Button } from "@/components/ui/button";
 import { Background } from "@/assets";
+import { useNavigate } from "react-router-dom";
 
 export default function HeroSection() {
+    const navigate = useNavigate();
     return (
         <div className="w-full h-full flex flex-col-reverse md:flex-row gap-4 justify-center items-center">
             <div className="h-full w-full flex flex-col max-w-[32rem] items-start justify-center overflow-hidden pt-8">
@@ -30,7 +32,7 @@ export default function HeroSection() {
                 </BoxReveal>
 
                 <BoxReveal className="w-full self-center" width="100%" boxColor={"#3b82f6"} duration={1}>
-                    <Button className="mt-[1.6rem] w-full text-center p-4 text-white  bg-[#3b82f6]">
+                    <Button onClick={() => navigate("/browse")} className="mt-[1.6rem] w-full text-center p-4 text-white  bg-[#3b82f6]">
                         Get Started
                     </Button>
                 </BoxReveal>

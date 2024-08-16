@@ -11,7 +11,7 @@ const cardVariants = {
 
 const links = [
     { href: "/", label: "Home" },
-    { href: "/", label: "Browse" },
+    { href: "/browse", label: "Browse" },
     { label: "Courses" },
 ]
 

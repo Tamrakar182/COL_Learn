@@ -14,7 +14,7 @@ interface Props {
 const CourseDetailsSection = ({ course }: Props) => {
     const links = [
         { href: "/", label: "Home" },
-        { href: "/", label: "Browse" },
+        { href: "/browse", label: "Browse" },
         { href: "/browse/courses", label: "Courses" },
         { label: course.title },
     ]

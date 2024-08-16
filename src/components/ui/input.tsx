@@ -6,10 +6,12 @@ import { FiEye, FiEyeOff } from "react-icons/fi";
 
 
 export interface InputProps
-  extends React.InputHTMLAttributes<HTMLInputElement> { }
+  extends React.InputHTMLAttributes<HTMLInputElement> {
+  containerStyle?: string;
+}
 
 const Input = React.forwardRef<HTMLInputElement, InputProps>(
-  ({ className, type, ...props }, ref) => {
+  ({ className, type, containerStyle, ...props }, ref) => {
     const [showPassword, setShowPassword] = React.useState(false);
 
     const togglePasswordVisibility = () => {
@@ -19,7 +21,7 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
     const inputType = type === "password" && showPassword ? "text" : type;
 
     return (
-      <div className="relative flex items-center">
+      <div className={cn("relative flex items-center", containerStyle)}>
         <input
           type={inputType}
           className={cn(
@@ -27,7 +29,7 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
             className
           )}
           ref={ref}
-          
+
           {...props}
         />
         {type === "password" && (
