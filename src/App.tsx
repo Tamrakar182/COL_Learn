@@ -5,6 +5,7 @@ import {
   CourseDetailsPage,
 
   BrowseTestPage,
+  TestDetailsPage,
 
   SignInPage,
   RegisterPage,
@@ -21,11 +22,16 @@ function App() {
         <NavFooter>
           <Routes>
             <Route path="/" element={<HomePage />} />
+
             <Route path="/browse/courses" element={<BrowseCoursesPage />} />
             <Route path="/browse/courses/:id" element={<CourseDetailsPage />} />
+
             <Route path="/browse/tests" element={<BrowseTestPage />} />
+            <Route path="/browse/tests/:id" element={<TestDetailsPage />} />
+
             <Route path="/sign-in" element={<SignInPage />} />
             <Route path="/register" element={<RegisterPage />} />
+            
             <Route path="*" element={<NotFoundPage />} />
           </Routes>
         </NavFooter>

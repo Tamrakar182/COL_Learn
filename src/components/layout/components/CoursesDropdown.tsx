@@ -5,6 +5,8 @@ import useDropdown from "@/context/useDropdown"
 import { CiGrid41 } from "react-icons/ci";
 import { Link, useNavigate } from "react-router-dom"
 import Container from "@/components/common/container";
+import CourseCard from "@/components/course-card";
+import { dummyCourse } from "@/mock/data";
 
 const CoursesDropdown = () => {
     const { coursesDropdown, handleCourses } = useDropdown()
@@ -46,49 +48,65 @@ const CoursesDropdown = () => {
                             >
                                 <div className="relative bg-white py-8">
                                     <Container>
-                                        <div className="flex flex-col flex-1 max-w-[30%]">
-                                            <h3 className="text-base-semi text-gray-900 mb-4">
-                                                Courses
-                                            </h3>
-                                            <div className="flex items-start">
-                                                <ul
-                                                    className="min-w-[152px] max-w-[200px] pr-4"
-                                                >
-                                                    <div
-                                                        className="pb-3"
+                                        <div className="flex flex-row gap-2">
+                                            <div className="flex flex-col flex-1 max-w-[30%]">
+                                                <h3 className="text-xl font-bold text-gray-900 mb-4">
+                                                    Course Categories
+                                                </h3>
+                                                <div className="flex items-start">
+                                                    <ul
+                                                        className="min-w-[152px] max-w-[250px] pr-4"
                                                     >
-                                                        <Link
-                                                            to={`/about-us`}
-                                                            onClick={() => handleCourses(false)}
+                                                        <div
+                                                            className="pb-3"
                                                         >
-                                                            Course 1
-                                                        </Link>
-                                                    </div>
+                                                            <Link
+                                                                to={`/browse/courses/${1}`}
+                                                                onClick={() => handleCourses(false)}
+                                                            >
+                                                                LokSewa Preparation
+                                                            </Link>
+                                                        </div>
 
-                                                    <div
-                                                        className="pb-3"
-                                                    >
-                                                        <Link
-                                                            // href={`/behind-the-brand`}
-                                                            to="#"
-                                                            onClick={() => handleCourses(false)}
+                                                        <div
+                                                            className="pb-3"
                                                         >
-                                                            Course 2
-                                                        </Link>
-                                                    </div>
+                                                            <Link
+                                                                to={`/browse/courses/${2}`}
+                                                                onClick={() => handleCourses(false)}
+                                                            >
+                                                                ILETS Preparation
+                                                            </Link>
+                                                        </div>
 
-                                                    <div
-                                                        className="pb-3"
-                                                    >
-                                                        <Link
-                                                            // href={`/pz-community`}
-                                                            to="#"
-                                                            onClick={() => handleCourses(false)}
+                                                        <div
+                                                            className="pb-3"
                                                         >
-                                                            Course 3
-                                                        </Link>
-                                                    </div>
-                                                </ul>
+                                                            <Link
+                                                                to={`/browse/courses/${3}`}
+                                                                onClick={() => handleCourses(false)}
+                                                            >
+                                                                IT Courses
+                                                            </Link>
+                                                        </div>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                            <div className="flex flex-col flex-1">
+                                                <h3 className="text-xl font-bold text-gray-900 mb-4">
+                                                    Popular Courses
+                                                </h3>
+                                                <div className="flex flex-row gap-2">
+                                                    {
+                                                        dummyCourse.slice(0, 3).map((course) => (
+                                                            <CourseCard
+                                                                key={course.id}
+                                                                onClick={() => handleCourses(false)}
+                                                                course={course}
+                                                                imageStyles="h-[120px] w-full" />
+                                                        ))
+                                                    }
+                                                </div>
                                             </div>
                                         </div>
                                     </Container>

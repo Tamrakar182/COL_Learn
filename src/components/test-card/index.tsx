@@ -2,14 +2,30 @@ import { TestType } from "@/types/test";
 import clsx from "clsx";
 import { useState } from "react";
 import { FaBook } from "react-icons/fa";
+import { useNavigate } from "react-router-dom";
 
-const TestCard = ({ test }: { test: TestType }) => {
+interface Props {
+    test: TestType
+    onClick?: () => void
+    showTakeTest?: boolean
+}
+
+const TestCard = ({ test, onClick, showTakeTest = true }: Props) => {
     const [hover, setHover] = useState(false);
+    const navigate = useNavigate();
+
+    const onCardClick = () => {
+        if (onClick) {
+            onClick();
+        }
+        navigate(`/browse/tests/${test.id}`);
+    }
 
     return (
         <div
             onMouseEnter={() => setHover(true)}
             onMouseLeave={() => setHover(false)}
+            onClick={onCardClick}
             className="flex flex-col h-full border rounded-xl overflow-hidden bg-gray-50 hover:shadow-xl transform transition-transform duration-300 hover:scale-105 cursor-pointer"
         >
             <div className="relative">
@@ -22,9 +38,9 @@ const TestCard = ({ test }: { test: TestType }) => {
                 <h2 className="text-xl font-semibold text-gray-800">{test.name}</h2>
                 <p className="text-sm text-gray-600 flex items-center gap-2"><FaBook size={16} />{test.questions} Questions</p>
             </div>
-            <div className={clsx("px-4 py-2 text-white text-center text-sm font-medium", { "bg-blue-500": !hover, "bg-black": hover })}>
+            {showTakeTest && <div className={clsx("px-4 py-2 text-white text-center text-sm font-medium", { "bg-blue-500": !hover, "bg-black": hover })}>
                 Take Test
-            </div>
+            </div>}
         </div>
     );
 };

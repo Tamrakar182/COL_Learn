@@ -28,13 +28,15 @@ const CourseDetailsSection = ({ course }: Props) => {
                 <div className="rounded-lg flex flex-col pt-4 gap-10">
                     <CourseBanner course={course} />
 
-                    <div className='flex flex-row gap-2'>
-                        <span className="text-xl font-bold">Category:</span>
-                        {course.categories.map((item) => (
-                            <Badge className='cursor-pointer items-center justify-center'>
-                                {item.name}
-                            </Badge>
-                        ))}
+                    <div className='flex flex-wrap gap-2'>
+                        <span className="text-xl font-bold whitespace-nowrap">Category:</span>
+                        <div className="flex flex-wrap gap-2">
+                            {course.categories.map((item) => (
+                                <Badge key={item.id} className='bg-[#3b82f6] text-sm cursor-pointer items-center justify-center'>
+                                    {item.name}
+                                </Badge>
+                            ))}
+                        </div>
                     </div>
 
                     {/* description */}
@@ -57,14 +59,14 @@ const CourseDetailsSection = ({ course }: Props) => {
                                     <h2 className="text-xl font-bold">{nextModule.name}</h2>
                                     <p className="text-sm">Duration: {nextModule.time}</p>
                                 </div>)}
-                            <Button className="text-xl rounded-none py-8">
+                            <Button className="text-xl bg-[#3b82f6] hover:bg-[#3b83f672] rounded-none py-8">
                                 Continue
                             </Button>
                         </div>
                     </div>
                 </div>
             </Container>
-            <Button className="md:hidden text-3xl rounded-none py-8 w-full fixed bottom-0">
+            <Button className="md:hidden bg-[#3b82f6] hover:bg-[#3b83f672] text-3xl rounded-none py-8 w-full fixed bottom-0">
                 Continue
             </Button>
         </>

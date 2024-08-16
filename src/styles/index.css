@@ -75,19 +75,19 @@
   }
 
   ::-webkit-scrollbar {
-    width: 10px;
+    width: 15px;
   }
 
   ::-webkit-scrollbar-track {
-    background: #f1f1f1;
+    background: #fff;
   }
 
   ::-webkit-scrollbar-thumb {
-    background: #888;
+    background: #3b82f6;
   }
 
   ::-webkit-scrollbar-thumb:hover {
-    background: #555;
+    background: #000;
   }
 
   .underline-animation {

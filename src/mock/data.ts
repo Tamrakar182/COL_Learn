@@ -2,7 +2,7 @@ import { Mock } from '@/assets';
 import mock from '@/assets/mock';
 import { CourseType, CourseDetail, CategoryType } from '@/types/course';
 import { ModuleType } from '@/types/module';
-import { TestType } from '@/types/test';
+import { TestType, TestDetailType, TestQuestion } from '@/types/test';
 
 export const dummyCourse: CourseType[] = [
   {
@@ -262,88 +262,221 @@ export const dummyCourseDetail: CourseDetail = {
 
 export const dummyMockTest: TestType[] = [
   {
-    id: "1",
-    duration: "2 hours",
+    id: '1',
+    duration: '2 hours',
     image: Mock.mock3,
-    name: "ILETS Reading Mock Preparation Test",
-    questions: "20"
+    name: 'ILETS Reading Mock Preparation Test',
+    questions: '20',
   },
   {
-    id: "2",
-    duration: "3 hours",
+    id: '2',
+    duration: '3 hours',
     image: Mock.mock1,
-    name: "Engineering Mock Preparation Test",
-    questions: "100"
+    name: 'Engineering Mock Preparation Test',
+    questions: '100',
   },
   {
-    id: "3",
-    duration: "3 hours",
+    id: '3',
+    duration: '3 hours',
     image: Mock.mock2,
-    name: "PTE Reading Mock Preparation Test",
-    questions: "20"
+    name: 'PTE Reading Mock Preparation Test',
+    questions: '20',
   },
   {
-    id: "4",
-    duration: "3 hours",
+    id: '4',
+    duration: '3 hours',
     image: Mock.mock4,
-    name: "LokSewa Mock Preparation Test",
-    questions: "40"
+    name: 'LokSewa Mock Preparation Test',
+    questions: '40',
   },
   {
-    id: "9",
-    duration: "2 hours",
+    id: '9',
+    duration: '2 hours',
     image: Mock.mock3,
-    name: "ILETS Reading 3 Mock Preparation Test",
-    questions: "20"
+    name: 'ILETS Reading 3 Mock Preparation Test',
+    questions: '20',
   },
   {
-    id: "10",
-    duration: "3 hours",
+    id: '10',
+    duration: '3 hours',
     image: Mock.mock1,
-    name: "Engineering 3 Mock Preparation Test",
-    questions: "100"
+    name: 'Engineering 3 Mock Preparation Test',
+    questions: '100',
   },
   {
-    id: "11",
-    duration: "3 hours",
+    id: '11',
+    duration: '3 hours',
     image: Mock.mock2,
-    name: "PTE Reading 3 Mock Preparation Test",
-    questions: "20"
+    name: 'PTE Reading 3 Mock Preparation Test',
+    questions: '20',
   },
   {
-    id: "12",
-    duration: "3 hours",
+    id: '12',
+    duration: '3 hours',
     image: Mock.mock4,
-    name: "LokSewa Mock 3 Preparation Test",
-    questions: "40"
+    name: 'LokSewa Mock 3 Preparation Test',
+    questions: '40',
   },
   {
-    id: "13",
-    duration: "2 hours",
+    id: '13',
+    duration: '2 hours',
     image: Mock.mock3,
-    name: "ILETS Reading 4 Mock Preparation Test",
-    questions: "20"
+    name: 'ILETS Reading 4 Mock Preparation Test',
+    questions: '20',
   },
   {
-    id: "14",
-    duration: "3 hours",
+    id: '14',
+    duration: '3 hours',
     image: Mock.mock1,
-    name: "Engineering 5 Mock Preparation Test",
-    questions: "100"
+    name: 'Engineering 5 Mock Preparation Test',
+    questions: '100',
   },
   {
-    id: "7",
-    duration: "3 hours",
+    id: '7',
+    duration: '3 hours',
     image: Mock.mock2,
-    name: "PTE Reading 2 Mock Preparation Test",
-    questions: "20"
+    name: 'PTE Reading 2 Mock Preparation Test',
+    questions: '20',
   },
   {
-    id: "8",
-    duration: "3 hours",
+    id: '8',
+    duration: '3 hours',
     image: Mock.mock4,
-    name: "LokSewa 2 Mock Preparation Test",
-    questions: "40"
-  }
+    name: 'LokSewa 2 Mock Preparation Test',
+    questions: '40',
+  },
+];
 
-]
+export const dummyMockQuestion: TestQuestion[] = [
+  {
+    id: '1',
+    question: 'What is the capital of Nepal?',
+    options: ['Kathmandu', 'Pokhara', 'Biratnagar', 'Lalitpur'],
+    answer: 'Kathmandu',
+    explanation: 'Kathmandu is the capital city of Nepal.',
+  },
+  {
+    id: '2',
+    question: 'What is the capital of India?',
+    options: ['Kathmandu', 'New Delhi', 'Mumbai', 'Chennai'],
+    answer: 'New Delhi',
+    explanation: 'New Delhi is the capital city of India.',
+  },
+  {
+    id: '3',
+    question: 'What is the capital of China?',
+    options: ['Beijing', 'Shanghai', 'Guangzhou', 'Shenzhen'],
+    answer: 'Beijing',
+    explanation: 'Beijing is the capital city of China.',
+  },
+  {
+    id: '4',
+    question: 'What is the capital of Japan?',
+    options: ['Tokyo', 'Osaka', 'Kyoto', 'Hiroshima'],
+    answer: 'Tokyo',
+    explanation: 'Tokyo is the capital city of Japan.',
+  },
+  {
+    id: '5',
+    question: 'What is the capital of Australia?',
+    options: ['Canberra', 'Sydney', 'Melbourne', 'Brisbane'],
+    answer: 'Canberra',
+    explanation: 'Canberra is the capital city of Australia.',
+  },
+  {
+    id: '6',
+    question: 'What is the capital of USA?',
+    options: ['Washington D.C.', 'New York', 'Los Angeles', 'Chicago'],
+    answer: 'Washington D.C.',
+    explanation: 'Washington D.C. is the capital city of the United States.',
+  },
+  {
+    id: '7',
+    question: 'What is the capital of Canada?',
+    options: ['Ottawa', 'Toronto', 'Vancouver', 'Montreal'],
+    answer: 'Ottawa',
+    explanation: 'Ottawa is the capital city of Canada.',
+  },
+  {
+    id: '8',
+    question: 'What is the capital of France?',
+    options: ['Paris', 'Marseille', 'Lyon', 'Toulouse'],
+    answer: 'Paris',
+    explanation: 'Paris is the capital city of France.',
+  },
+  {
+    id: '9',
+    question: 'What is the capital of Germany?',
+    options: ['Berlin', 'Munich', 'Hamburg', 'Frankfurt'],
+    answer: 'Berlin',
+    explanation: 'Berlin is the capital city of Germany.',
+  },
+  {
+    id: '10',
+    question: 'What is the capital of Italy?',
+    options: ['Rome', 'Milan', 'Naples', 'Turin'],
+    answer: 'Rome',
+    explanation: 'Rome is the capital city of Italy.',
+  },
+];
+
+export const dummyCategories2: CategoryType[] = [
+  {
+    id: '1',
+    name: 'Mock Test',
+  },
+  {
+    id: '2',
+    name: 'Language Test',
+  },
+  {
+    id: '3',
+    name: 'ILETS',
+  },
+  {
+    id: '4',
+    name: 'Abroad Prep',
+  },
+];
+
+export const dummyMockTestDetail: TestDetailType = {
+  id: '1',
+  image: Mock.mock2,
+  duration: '3 hours',
+  name: 'ILETS Reading Mock Preparation Test',
+  questions: dummyMockQuestion,
+  lastScore: "0",
+  categories: dummyCategories2,
+  description: `<div>
+    <p><strong>Test Title:</strong> IELTS Reading Practice Test</p>
+    
+    <p><em>Test Designed By:</em> John Smith</p>
+    
+    <p>This practice test is designed to help you prepare for the <strong>IELTS Reading</strong> exam. It includes three sections, each with a variety of question types that you might encounter in the actual test.</p>
+    
+    <h3><strong>Test Structure:</strong></h3>
+    <ul>
+        <li><strong>Section 1:</strong> Passage 1 - 13 questions</li>
+        <li><strong>Section 2:</strong> Passage 2 - 13 questions</li>
+        <li><strong>Section 3:</strong> Passage 3 - 14 questions</li>
+    </ul>
+    
+    <p><strong>Question Types:</strong></p>
+    <ul>
+        <li>Multiple Choice</li>
+        <li>True/False/Not Given</li>
+        <li>Matching Headings</li>
+        <li>Sentence Completion</li>
+        <li>Short Answer Questions</li>
+    </ul>
+    
+    <p><strong>Time Allowed:</strong> 60 minutes</p>
+    
+    <p><strong>Instructions:</strong> You are required to read the passages carefully and answer all the questions. Make sure to manage your time effectively and review your answers before submitting.</p>
+    
+    <p><strong>Scoring:</strong> Each correct answer will award you one mark. Your total score will be converted to the IELTS 9-band scale.</p>
+    
+    <p><strong>Good Luck!</strong> Focus, read carefully, and do your best!</p>
+</div>
+`,
+};

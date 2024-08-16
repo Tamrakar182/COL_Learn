@@ -1,19 +1,17 @@
 import Container from "@/components/common/container"
 import { dummyCourse, categories, dummyMockTest } from "@/mock/data";
 import { useNavigate } from "react-router-dom";
-import CourseCard from "../components/CourseCard";
+import CourseCard from "@/components/course-card";
+import TestCard from "@/components/test-card";
 import HeroSection from "../components/HeroSection";
 import IconCloudSection from "../components/IconCloud";
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
-import TestCard from "../components/TestCard";
 
 const cardVariants = {
     hidden: { opacity: 0, y: 50 },
     visible: { opacity: 1, y: 0 },
 };
-
-
 
 const HomeSection = () => {
     const navigate = useNavigate();
@@ -113,15 +111,21 @@ const HomeSection = () => {
                                 </div>
                             </motion.div>
                         ))}
-                        <div
-                            className="flex flex-row items-center p-4 cursor-pointer bg-white hover:shadow-md rounded border overflow-hidden transform transition-transform duration-300 hover:scale-105"
+                        <motion.div
+                            variants={cardVariants}
+                            initial="hidden"
+                            whileInView="visible"
+                            viewport={{ once: true, amount: 0.2 }}
+                            transition={{ duration: 0.5, delay: (categories.length + 1) * 0.2 }}
+                            className="flex gap-2 flex-row items-center p-4 cursor-pointer bg-white hover:shadow-md rounded border overflow-hidden transform transition-transform duration-300 hover:scale-105"
                         >
+
                             <span className="text-6xl">🌎</span>
                             <div>
                                 <p>Show All</p>
                             </div>
+                        </motion.div>
 
-                        </div>
                     </div>
                 </div>
             </Container >

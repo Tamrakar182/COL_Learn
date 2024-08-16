@@ -2,7 +2,7 @@ import Container from "@/components/common/container"
 import { dummyMockTest } from "@/mock/data";
 import { NavigateBreadcrumbs } from "@/components/navigate-breadcrumbs";
 import { motion } from "framer-motion";
-import TestCard from "../components/TestCard";
+import TestCard from "@/components/test-card";
 
 const cardVariants = {
     hidden: { opacity: 0, y: 50 },

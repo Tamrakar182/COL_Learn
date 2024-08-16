@@ -1,8 +1,8 @@
 import Container from "@/components/common/container"
 import { dummyCourse } from "@/mock/data";
 import { NavigateBreadcrumbs } from "@/components/navigate-breadcrumbs";
-import CourseCard from "../components/CourseCard"
 import { motion } from "framer-motion";
+import CourseCard from "@/components/course-card";
 
 const cardVariants = {
     hidden: { opacity: 0, y: 50 },

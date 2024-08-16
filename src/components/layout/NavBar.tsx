@@ -4,6 +4,7 @@ import { Logo } from '@/assets';
 import { Button } from "@/components/ui/button";
 import CoursesDropdown from './components/CoursesDropdown';
 import TestsDropdown from './components/TestsDropdown';
+import { MobileMenu } from './components/MobileMenu';
 
 const Navbar = () => {
     const navigate = useNavigate();
@@ -13,18 +14,14 @@ const Navbar = () => {
                 <div className='flex flex-row items-center gap-4'>
                     <Link to="/" className="flex items-center space-x-3 rtl:space-x-reverse ">
                         <img
-                            src={Logo.HMainLogoDark}
-                            width={100}
-                            height={55}
+                            src={Logo.MainLogo}
                             alt="Logo"
-                            className="hidden xl:block"
+                            className="hidden xl:block h-12 w-12"
                         />
                         <img
-                            src={Logo.MainLogoIconDark}
-                            width={50}
-                            height={55}
+                            src={Logo.MainLogo}
                             alt="Logo"
-                            className="xl:hidden"
+                            className="xl:hidden h-12 w-12"
                         />
                     </Link>
                     <div className="hidden md:inline-block w-0.5 self-stretch bg-slate-100 rounded-full" />
@@ -40,8 +37,9 @@ const Navbar = () => {
                     />
                 </div>
                 <div className='flex items-center flex-row gap-6'>
-                    <FaSearch className='md:hidden w-6 h-6' />
-                    <Button onClick={() => navigate("/sign-in")} variant="outline" className='w-full h-full'>Sign In</Button>
+                    <FaSearch className='md:hidden w-6 h-6 cursor-pointer' />
+                    <Button onClick={() => navigate("/sign-in")} variant="outline" className='hidden md:flex w-full h-full'>Sign In</Button>
+                    <MobileMenu />
                 </div>
             </div>
         </nav >

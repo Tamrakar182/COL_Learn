@@ -1,5 +1,6 @@
 import BoxReveal from "@/components/box-reveal";
 import { Button } from "@/components/ui/button";
+import { Background } from "@/assets";
 
 export default function HeroSection() {
     return (
@@ -37,7 +38,7 @@ export default function HeroSection() {
 
             <div>
                 <BoxReveal boxColor={"#3b82f6"} duration={1}>
-                    <img src="/mock/hero_illus.svg" className="max-w-[280px] sm:max-w-sm md:max-w-lg" />
+                    <img src={Background.heroIllustration} className="max-w-[280px] sm:max-w-sm md:max-w-lg" />
                 </BoxReveal>
             </div>
         </div>
