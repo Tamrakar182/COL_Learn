@@ -6,12 +6,15 @@ import { Badge } from '@/components/ui/badge';
 import { CourseDetail } from '@/types/course';
 import parse from 'html-react-parser';
 import CourseBanner from '../components/CourseBanner';
+import { useNavigate } from 'react-router-dom';
 
 interface Props {
     course: CourseDetail;
 }
 
 const CourseDetailsSection = ({ course }: Props) => {
+    const navigate = useNavigate();
+
     const links = [
         { href: "/", label: "Home" },
         { href: "/browse", label: "Browse" },
@@ -20,6 +23,10 @@ const CourseDetailsSection = ({ course }: Props) => {
     ]
 
     const nextModule = course.modules.find((item) => item.id === course.nextModule);
+
+    const handleCategoryClick = (categoryName: string) => {
+        navigate(`/browse?category=${encodeURIComponent(categoryName)}`);
+    };
 
     return (
         <>
@@ -32,7 +39,11 @@ const CourseDetailsSection = ({ course }: Props) => {
                         <span className="text-xl font-bold whitespace-nowrap">Category:</span>
                         <div className="flex flex-wrap gap-2">
                             {course.categories.map((item) => (
-                                <Badge key={item.id} className='bg-[#3b82f6] text-sm cursor-pointer items-center justify-center'>
+                                <Badge
+                                    key={item.id}
+                                    onClick={() => handleCategoryClick(item.name)}
+                                    className='bg-[#3b82f6] text-sm cursor-pointer items-center justify-center'
+                                >
                                     {item.name}
                                 </Badge>
                             ))}

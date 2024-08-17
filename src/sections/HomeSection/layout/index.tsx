@@ -7,11 +7,7 @@ import HeroSection from "../components/HeroSection";
 import IconCloudSection from "../components/IconCloud";
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
-
-const cardVariants = {
-    hidden: { opacity: 0, y: 50 },
-    visible: { opacity: 1, y: 0 },
-};
+import { cardVariants } from "@/config-global";
 
 const HomeSection = () => {
     const navigate = useNavigate();

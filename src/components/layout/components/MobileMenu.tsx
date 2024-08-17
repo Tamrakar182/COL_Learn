@@ -29,7 +29,7 @@ export function MobileMenu() {
                     <IoMenu className="md:hidden w-8 h-8 cursor-pointer" />
                 </div>
             </SheetTrigger>
-            <SheetContent className="w-screen sm:w-screen">
+            <SheetContent className="w-screen md:w-screen sm:max-w-screen">
                 <SheetHeader>
                     <SheetTitle className="sr-only">Mobile Menu</SheetTitle>
                     <SheetDescription className="sr-only">

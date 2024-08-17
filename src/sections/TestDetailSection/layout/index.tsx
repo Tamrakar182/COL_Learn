@@ -21,6 +21,10 @@ const TestDetailSection = ({ testDetail }: Props) => {
         { label: testDetail.name },
     ]
 
+    const handleCategoryClick = (categoryName: string) => {
+        navigate(`/browse?category=${encodeURIComponent(categoryName)}`);
+    };
+
     return (
         <>
             <Container>
@@ -32,7 +36,10 @@ const TestDetailSection = ({ testDetail }: Props) => {
                         <span className="text-xl font-bold whitespace-nowrap">Category:</span>
                         <div className="flex flex-wrap gap-2">
                             {testDetail.categories.map((item) => (
-                                <Badge key={item.id} className='bg-[#3b82f6] text-sm cursor-pointer items-center justify-center'>
+                                <Badge
+                                    onClick={() => handleCategoryClick(item.name)}
+                                    key={item.id} className='bg-[#3b82f6] text-sm cursor-pointer items-center justify-center'
+                                >
                                     {item.name}
                                 </Badge>
                             ))}
@@ -41,7 +48,7 @@ const TestDetailSection = ({ testDetail }: Props) => {
 
                     {/* description */}
                     <div className="flex md:flex-row flex-col justify-between gap-8">
-                        <div className="renderedHTML max-w-[60%]">
+                        <div className="renderedHTML md:max-w-[60%]">
                             {parse(testDetail.description)}
                         </div>
 

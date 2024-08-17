@@ -3,11 +3,7 @@ import { dummyMockTest } from "@/mock/data";
 import { NavigateBreadcrumbs } from "@/components/navigate-breadcrumbs";
 import { motion } from "framer-motion";
 import TestCard from "@/components/test-card";
-
-const cardVariants = {
-    hidden: { opacity: 0, y: 50 },
-    visible: { opacity: 1, y: 0 },
-};
+import { cardVariants } from "@/config-global";
 
 const links = [
     { href: "/", label: "Home" },

@@ -1,22 +1,81 @@
-import Container from "@/components/common/container"
-import BrowseBanner from "../components/BrowseBanner"
-import { Input } from "@/components/ui/input"
-import { Button } from "@/components/ui/button"
-import { TiFilter } from "react-icons/ti";
-import { FaSearch } from "react-icons/fa";
 import { useState } from "react";
+import { filterResults } from "@/utils/mockFilter";
+import { isObjectEmpty } from "@/utils";
+import { useSearchParams } from "react-router-dom";
+import { useEffect } from "react";
+
+import Container from "@/components/common/container"
+import FilterForm from "../components/FilterForm";
+import FilteredResults from "../components/FilteredResults";
 import SortByFilter from "../components/SortByFilter";
+import BrowseBanner from "../components/BrowseBanner"
+import SearchBar from "../components/SearchBar";
+import FilterBadges from "../components/FilteredBadge";
+
+import FilterMobileMenu from "../components/FilterMobileMenu";
 
 const BrowseSection = () => {
-    const [sortBy, setSortBy] = useState("popular");
     const [search, setSearch] = useState("");
+    const [sortBy, setSortBy] = useState("popular");
+    const [duration, setDuration] = useState(50);
+    const [searchParams] = useSearchParams();
 
-    const handleSortByChange = (value: string) => {
-        setSortBy(value);
-    }
+    const [selectedFilters, setSelectedFilters] = useState<{
+        [key: string]: string[]
+    }>({});
+
+    const filteredResults = filterResults(selectedFilters, search);
+
+    useEffect(() => {
+        const categoryParam = searchParams.get('category');
+        if (categoryParam) {
+            setSelectedFilters(prevFilters => ({
+                ...prevFilters,
+                category: [categoryParam]
+            }));
+        }
+    }, [searchParams]);
 
     const handleSearch = (value: string) => {
         setSearch(value);
+    }
+
+    const handleSortBy = (value: string) => {
+        setSortBy(value);
+    }
+
+    const handleFilterChange = (sectionId: string, optionValue: string) => {
+        setSelectedFilters((prevState) => {
+            if (sectionId === "order" || sectionId === "type") {
+                return { ...prevState, [sectionId]: [optionValue] }
+            } else {
+                const prevSelectedOptions = prevState[sectionId] || []
+                const isSelected = prevSelectedOptions.includes(optionValue)
+                const newSelectedOptions = isSelected
+                    ? prevSelectedOptions.filter((value) => value !== optionValue)
+                    : [...prevSelectedOptions, optionValue]
+                return { ...prevState, [sectionId]: newSelectedOptions }
+            }
+        })
+    }
+
+    const handleDurationChange = (value: number) => {
+        setDuration(value);
+    }
+
+    const handleFilterClear = () => {
+        setSelectedFilters({});
+    }
+
+    const handleRemoveFilter = (sectionId: string, optionValue: string) => {
+        setSelectedFilters((prevState) => {
+            const newFilters = { ...prevState };
+            newFilters[sectionId] = newFilters[sectionId].filter(value => value !== optionValue);
+            if (newFilters[sectionId].length === 0) {
+                delete newFilters[sectionId];
+            }
+            return newFilters;
+        });
     }
 
     return (
@@ -24,45 +83,50 @@ const BrowseSection = () => {
             <BrowseBanner />
             <Container>
                 <div className="grid grid-cols-2 md:grid-cols-3 gap-4 min-h-screen">
-                    <div className="col-span-1 hidden md:flex">
-                        Filter
-                    </div>
+                    <FilterForm
+                        duration={duration}
+                        handleDurationChange={handleDurationChange}
+                        handleFilterChange={handleFilterChange}
+                        selectedFilters={selectedFilters}
+                        handleFilterClear={handleFilterClear}
+                    />
                     <div className="col-span-2 py-8">
-                        <div className="flex flex-row gap-4">
-                            <Input
-                                className="w-full" containerStyle="flex-1"
-                                placeholder="Search"
-                                value={search}
-                                onChange={(e) => handleSearch(e.target.value)}
+                        <SearchBar
+                            handleSearch={handleSearch}
+                            search={search}
+                        />
+                        <FilterBadges
+                            selectedFilters={selectedFilters}
+                            handleRemoveFilter={handleRemoveFilter}
+                        />
+                        <div className="flex flex-row items-center justify-between">
+                            <FilterMobileMenu
+                                selectedFilters={selectedFilters}
+                                handleFilterClear={handleFilterClear}
+                                handleFilterChange={handleFilterChange}
+                                filteredResultsCount={filteredResults.length}
                             />
-                            <Button className="flex flex-row gap-2">
-                                <FaSearch />
-                                <span className="hidden md:inline">
-                                    Search
-                                </span>
-                            </Button>
-                        </div>
-                        <div className="p-2 border items-center rounded-md md:hidden text-sm text w-fit my-2 flex flex-row gap-2">
-                            <TiFilter className="w-6 h-6" />
-                            Filters
+                            {!isObjectEmpty(selectedFilters) &&
+                                <p
+                                    onClick={() => handleFilterClear()}
+                                    className="text-sm w-fit md:hidden text-blue-500 cursor-pointer underline-animation"
+                                >
+                                    Clear All
+                                </p>
+                            }
                         </div>
 
                         <div className="flex flex-row justify-between my-4 items-center">
-                            100 result
-                            <div className="flex flex-row items-center gap-2">
-                                Sort By:
-                                <SortByFilter
-                                    handleSelectChange={handleSortByChange}
-                                    selected={sortBy}
-                                />
-                            </div>
+                            {filteredResults.length} result{filteredResults.length !== 1 ? 's' : ''}
+                            <SortByFilter
+                                handleSelectChange={handleSortBy}
+                                selected={sortBy}
+                            />
                         </div>
 
-                        <div className="grid md:grid-col-2 grid-col-1">
-
-                        </div>
-
-
+                        <FilteredResults
+                            filteredResults={filteredResults}
+                        />
                     </div>
                 </div>
             </Container>
@@ -70,4 +134,4 @@ const BrowseSection = () => {
     )
 }
 
-export default BrowseSection
+export default BrowseSection;
