@@ -1,12 +1,14 @@
 import Container from '@/components/common/container';
-import CourseModules from '../components/CourseModule';
 import { NavigateBreadcrumbs } from "@/components/navigate-breadcrumbs";
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { CourseDetail } from '@/types/course';
 import parse from 'html-react-parser';
-import CourseBanner from '../components/CourseBanner';
 import { useNavigate } from 'react-router-dom';
+
+import CourseModules from '../components/CourseModule';
+import CourseBanner from '../components/CourseBanner';
+import RelatedCourses from '../components/RelatedCourses';
 
 interface Props {
     course: CourseDetail;
@@ -75,6 +77,8 @@ const CourseDetailsSection = ({ course }: Props) => {
                             </Button>
                         </div>
                     </div>
+
+                    <RelatedCourses />
                 </div>
             </Container>
             <Button className="md:hidden bg-[#3b82f6] hover:bg-[#3b83f672] text-3xl rounded-none py-8 w-full fixed bottom-0">

@@ -17,3 +17,28 @@ export const parseDuration = (duration: string): number => {
   }
   return 0;
 };
+
+export const formatDuration = (seconds: number): string => {
+  const hours = Math.floor(seconds / 3600);
+  const minutes = Math.floor((seconds % 3600) / 60);
+  const remainingSeconds = seconds % 60;
+
+  const formattedHours = hours > 0 ? `${hours} hour${hours !== 1 ? 's' : ''}` : '';
+  const formattedMinutes = minutes > 0 ? `${minutes} minute${minutes !== 1 ? 's' : ''}` : '';
+  const formattedSeconds = remainingSeconds > 0 ? `${remainingSeconds} second${remainingSeconds !== 1 ? 's' : ''}` : '';
+
+  return [formattedHours, formattedMinutes, formattedSeconds].filter(Boolean).join(', ');
+};
+
+export const formatISOToCustomDate = (isoString: string) => {
+  const date = new Date(isoString);
+
+  return new Intl.DateTimeFormat('en-US', {
+    month: 'long',
+    day: 'numeric',
+    year: 'numeric',
+    hour: 'numeric',
+    minute: 'numeric',
+    hour12: true,
+  }).format(date);
+}

@@ -44,3 +44,6 @@ export const cardVariants = {
   hidden: { opacity: 0, y: 50 },
   visible: { opacity: 1, y: 0 },
 };
+
+export const QUESTION_WEIGHT = 1;
+export const NEGATIVE_MARKS = 0;

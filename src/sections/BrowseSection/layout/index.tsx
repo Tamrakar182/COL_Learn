@@ -17,7 +17,7 @@ import FilterMobileMenu from "../components/FilterMobileMenu";
 const BrowseSection = () => {
     const [search, setSearch] = useState("");
     const [sortBy, setSortBy] = useState("popular");
-    const [duration, setDuration] = useState(50);
+    const [duration, setDuration] = useState(0);
     const [searchParams] = useSearchParams();
 
     const [selectedFilters, setSelectedFilters] = useState<{
@@ -98,6 +98,8 @@ const BrowseSection = () => {
                         <FilterBadges
                             selectedFilters={selectedFilters}
                             handleRemoveFilter={handleRemoveFilter}
+                            duration={duration}
+                            handleResetDuration={() => setDuration(0)}
                         />
                         <div className="flex flex-row items-center justify-between">
                             <FilterMobileMenu

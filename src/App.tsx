@@ -9,6 +9,7 @@ import {
   BrowseTestPage,
   TestDetailsPage,
   TestPage,
+  TestResultPage,
 
   SignInPage,
   RegisterPage,
@@ -33,6 +34,7 @@ function App() {
 
             <Route path="/browse/tests" element={<BrowseTestPage />} />
             <Route path="/browse/tests/:id" element={<TestDetailsPage />} />
+            <Route path="/browse/tests/:id/result" element={<TestResultPage />} />
 
             <Route path="/sign-in" element={<SignInPage />} />
             <Route path="/register" element={<RegisterPage />} />

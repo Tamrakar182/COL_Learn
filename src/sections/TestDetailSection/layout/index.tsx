@@ -2,10 +2,13 @@ import { TestDetailType } from "@/types/test"
 import Container from "@/components/common/container"
 import { NavigateBreadcrumbs } from "@/components/navigate-breadcrumbs";
 import { Button } from '@/components/ui/button';
-import TestBanner from "../components/TestBanner";
 import { Badge } from "@/components/ui/badge";
 import parse from 'html-react-parser';
 import { useNavigate } from "react-router-dom";
+
+import SomeNotes from "../components/SomeNotes";
+import TestBanner from "../components/TestBanner";
+import RelatedTests from "../components/RelatedTests";
 
 interface Props {
     testDetail: TestDetailType
@@ -52,27 +55,10 @@ const TestDetailSection = ({ testDetail }: Props) => {
                             {parse(testDetail.description)}
                         </div>
 
-                        <div className="p-4 border rounded shadow-sm h-fit flex flex-col items-center">
-                            <h2 className="font-bold mb-4">Some things to keep in mind:</h2>
-                            <ul className="list-disc list-inside space-y-2">
-                                <li className="font-lg">
-                                    This is a <span className="font-bold">FREE</span> online test.
-                                </li>
-                                <li className="font-semibold">Total number of questions: <span className="text-xl">{testDetail.questions.length}</span>.</li>
-                                <li className="font-semibold">Time allotted: <span className="text-xl">{testDetail.duration}</span></li>
-                                <li>Each question carries 1 mark; there are no negative marks.</li>
-                                <li>DO NOT refresh the page.</li>
-                                <li>All the best!</li>
-                            </ul>
-
-                            <Button
-                                onClick={() => navigate(`/browse/tests/${testDetail.id}/start`)}
-                                className="md:flex bg-[#3b82f6] hover:bg-[#3b83f672] hidden text-xl rounded-none my-8"
-                            >
-                                Take the Test
-                            </Button>
-                        </div>
+                        <SomeNotes testDetail={testDetail} />
                     </div>
+
+                    <RelatedTests />
                 </div>
             </Container>
             <Button

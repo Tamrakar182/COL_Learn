@@ -1,13 +1,16 @@
 import Container from "@/components/common/container"
 import { TestDetailType } from "@/types/test"
-import { useState } from "react"
+import { useState, useEffect, useMemo } from "react"
+import { useNavigate } from "react-router-dom"
 import { Button } from "@/components/ui/button"
-import { useEffect } from "react"
 import useToggleState from "@/hooks/useToggleState"
+import { parseDuration, formatTime } from "@/utils/time"
+import useTimer from "@/hooks/useTimer"
+import NavigationButtons from "../components/NavigationButton"
 import QuestionCard from "../components/QuestionCard"
 import ConfirmationDialog from "../components/ConfirmationDialog"
 import QuestionSelection from "../components/QuestionSelection"
-import { parseDuration, formatTime } from "@/utils/time"
+import TestNotFound from "../components/TestNotFound"
 
 interface Props {
     testDetails: TestDetailType
@@ -15,11 +18,20 @@ interface Props {
 
 const TestSection = ({ testDetails }: Props) => {
     const { state, toggle } = useToggleState();
+    const navigate = useNavigate();
     const [activeQuestion, setActiveQuestion] = useState(0);
     const [answers, setAnswers] = useState<(string | undefined)[]>(Array(testDetails.questions.length).fill(undefined));
-    const [timeLeft, setTimeLeft] = useState(parseDuration(testDetails.duration));
+    const timeLeft = useTimer(parseDuration(testDetails.duration));
 
-    const activeQuestionData = testDetails.questions[activeQuestion];
+    const [startTimeStamp, setStartTimeStamp] = useState<string>('');
+
+    const activeQuestionData = useMemo(() => testDetails.questions[activeQuestion], [activeQuestion, testDetails.questions]);
+
+    useEffect(() => {
+        const startTimeStamp = new Date().toISOString();
+        setStartTimeStamp(startTimeStamp);
+    }, []);
+
 
     const handleAnswerSelect = (answer: string) => {
         const newAnswers = [...answers];
@@ -27,23 +39,26 @@ const TestSection = ({ testDetails }: Props) => {
         setAnswers(newAnswers);
     };
 
-    useEffect(() => {
-        const timer = setInterval(() => {
-            setTimeLeft((prevTime) => {
-                if (prevTime > 0) return prevTime - 1;
-                clearInterval(timer);
-                return 0;
-            });
-        }, 1000);
-
-        return () => clearInterval(timer);
-    }, []);
-
     const handleSubmit = () => {
-        console.log(answers);
         toggle();
+        const submitTimeStamp = new Date().toISOString();
+        navigate(`/browse/tests/${testDetails.id}/result`, {
+            state: {
+                answers,
+                submitTimeStamp,
+                startTimeStamp
+            }
+        });
     };
 
+    const handleQuestionSelect = (questionIndex: number) => {
+        setActiveQuestion(questionIndex);
+    };
+
+    if (!testDetails) {
+        return <TestNotFound />;
+    }
+    
     return (
         <>
             <Container>
@@ -56,20 +71,11 @@ const TestSection = ({ testDetails }: Props) => {
                                 answers={answers}
                                 handleAnswerSelect={handleAnswerSelect}
                             />
-                            <div className="flex flex-row justify-between mt-4">
-                                <Button
-                                    disabled={activeQuestion === 0}
-                                    onClick={() => setActiveQuestion((prev) => Math.max(prev - 1, 0))}
-                                >
-                                    Prev
-                                </Button>
-                                <Button
-                                    disabled={activeQuestion === testDetails.questions.length - 1}
-                                    onClick={() => setActiveQuestion((prev) => Math.min(prev + 1, testDetails.questions.length - 1))}
-                                >
-                                    Next
-                                </Button>
-                            </div>
+                            <NavigationButtons
+                                activeQuestion={activeQuestion}
+                                handleQuestionSelect={handleQuestionSelect}
+                                questionsLength={testDetails.questions.length}
+                            />
                         </div>
                         <div className="col-span-1 md:items-end flex flex-col gap-4 mb-4">
                             <QuestionSelection
