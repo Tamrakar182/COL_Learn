@@ -1,7 +1,7 @@
 import { Popover, PopoverPanel, Transition, PopoverButton } from "@headlessui/react"
 import clsx from "clsx"
 import React from "react"
-import useDropdown from "@/context/useDropdown"
+import { useDropdown } from "@/context"
 import { FaRegNoteSticky } from "react-icons/fa6";
 import { useMediaQuery } from "@/hooks/useMediaQuery";
 import { Link, useNavigate } from "react-router-dom"

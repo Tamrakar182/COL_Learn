@@ -1,4 +1,4 @@
-import BrowseCoursesSection from '@/sections/BrowseCourseSection/layout'
+import BrowseCoursesSection from '@/sections/CourseSection/BrowseCourseSection/layout'
 
 export default function BrowseCoursesPage() {
   return (

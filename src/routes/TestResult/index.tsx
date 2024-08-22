@@ -1,4 +1,4 @@
-import TestResultSection from "@/sections/TestResultSection/layout"
+import TestResultSection from "@/sections/TestSection/TestResultSection/layout"
 
 export default function TestResultPage() {
     return <TestResultSection />

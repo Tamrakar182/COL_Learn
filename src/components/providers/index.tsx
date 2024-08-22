@@ -1,5 +1,7 @@
 import { DropdownProvider } from "@/context/dropdown-context"
 import { ReactNode } from "react"
+import { Toaster } from "../ui/toaster"
+import { AuthProvider } from "@/context/auth-context"
 
 interface Props {
     children: ReactNode
@@ -7,8 +9,13 @@ interface Props {
 
 export default function Providers({ children }: Props) {
     return (
-        <DropdownProvider>
-            {children}
-        </DropdownProvider>
+        <>
+            <AuthProvider>
+                <DropdownProvider>
+                    {children}
+                </DropdownProvider>
+            </AuthProvider>
+            <Toaster />
+        </>
     )
 }

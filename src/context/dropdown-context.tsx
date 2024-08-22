@@ -1,22 +1,10 @@
 import useToggleState from "@/hooks/useToggleState"
 import { createContext, useEffect, useState } from "react"
-
-type DropdownContext = {
-    state: boolean
-    open: () => void
-    timedOpen: () => void
-    close: () => void
-
-    coursesDropdown: boolean
-    handleCourses: (value: boolean) => void
-
-    tests: boolean
-    handleTests: (value: boolean) => void
-}
+import { DropdownContextType } from "@/types/context"
 
 type Timer = ReturnType<typeof setTimeout>;
 
-export const DropdownContext = createContext<DropdownContext | null>(
+export const DropdownContext = createContext<DropdownContextType | null>(
     null
 )
 

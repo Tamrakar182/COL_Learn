@@ -16,7 +16,7 @@ interface Props {
     testDetails: TestDetailType
 }
 
-const TestSection = ({ testDetails }: Props) => {
+const TestQuizSection = ({ testDetails }: Props) => {
     const { state, toggle } = useToggleState();
     const navigate = useNavigate();
     const [activeQuestion, setActiveQuestion] = useState(0);
@@ -103,4 +103,4 @@ const TestSection = ({ testDetails }: Props) => {
     )
 }
 
-export default TestSection
+export default TestQuizSection

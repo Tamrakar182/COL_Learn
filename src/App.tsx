@@ -8,11 +8,14 @@ import {
 
   BrowseTestPage,
   TestDetailsPage,
-  TestPage,
+  TestQuizPage,
   TestResultPage,
 
   SignInPage,
   RegisterPage,
+  ChangePasswordPage,
+  ForgotPage,
+  VerifyPage,
 
   NotFoundPage,
 } from '@/routes/index';
@@ -22,8 +25,8 @@ import Providers from './components/providers';
 
 function App() {
   return (
-    <Providers>
-      <Router>
+    <Router>
+      <Providers>
         <Routes>
           <Route element={<NavFooter />}>
             <Route path="/" element={<HomePage />} />
@@ -38,15 +41,18 @@ function App() {
 
             <Route path="/sign-in" element={<SignInPage />} />
             <Route path="/register" element={<RegisterPage />} />
+            <Route path="/forgot" element={<ForgotPage />} />
+            <Route path="/verify" element={<VerifyPage />} />
+            <Route path="/change-password" element={<ChangePasswordPage />} />
 
             <Route path="*" element={<NotFoundPage />} />
           </Route>
           <Route element={<SimpleNav />}>
-            <Route path="/browse/tests/:id/start" element={<TestPage />} />
+            <Route path="/browse/tests/:id/start" element={<TestQuizPage />} />
           </Route>
         </Routes>
-      </Router>
-    </Providers>
+      </Providers>
+    </Router>
   )
 }
 

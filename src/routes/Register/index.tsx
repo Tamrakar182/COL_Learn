@@ -1,4 +1,4 @@
-import RegisterSection from '@/sections/RegisterSection/layouts'
+import RegisterSection from '@/sections/AuthSection/RegisterSection/layouts'
 
 export default function RegisterPage() {
   return (

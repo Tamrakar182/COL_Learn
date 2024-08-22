@@ -3,6 +3,7 @@ import mock from '@/assets/mock';
 import { CourseType, CourseDetail, CategoryType } from '@/types/course';
 import { ModuleType } from '@/types/module';
 import { TestType, TestDetailType, TestQuestion } from '@/types/test';
+import { UserType } from '@/types/user';
 
 export const dummyCourse: CourseType[] = [
   {
@@ -445,7 +446,7 @@ export const dummyMockTestDetail: TestDetailType = {
   duration: '3 hours',
   name: 'ILETS Reading Mock Preparation Test',
   questions: dummyMockQuestion,
-  lastScore: "0",
+  lastScore: '0',
   categories: dummyCategories2,
   description: `<div>
     <p><strong>Test Title:</strong> IELTS Reading Practice Test</p>
@@ -513,7 +514,7 @@ export const mockFilterResults = [
     difficulty: 'Beginner',
     duration: '2 Hours',
     categories: ['ILETS', 'Language Test'],
-  }, 
+  },
   {
     id: '5',
     name: 'ILETS Mock Test 2',
@@ -562,4 +563,13 @@ export const mockFilterResults = [
     duration: '100 Hours',
     categories: ['Web Development'],
   },
-]
+];
+
+export const mockUsers: UserType[] = [
+  {
+    id: 1,
+    name: 'John Doe',
+    email: 'john@gmail.com',
+    password: "testtest",
+  },
+];

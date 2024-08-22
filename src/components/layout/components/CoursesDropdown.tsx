@@ -1,16 +1,21 @@
 import { Popover, Transition, PopoverButton, PopoverPanel } from "@headlessui/react"
 import clsx from "clsx"
 import React from "react"
-import useDropdown from "@/context/useDropdown"
+import { useDropdown } from "@/context"
 import { CiGrid41 } from "react-icons/ci";
 import { Link, useNavigate } from "react-router-dom"
 import Container from "@/components/common/container";
 import CourseCard from "@/components/course-card";
 import { dummyCourse } from "@/mock/data";
+import { useMediaQuery } from "@/hooks/useMediaQuery";
 
 const CoursesDropdown = () => {
     const { coursesDropdown, handleCourses } = useDropdown()
     const navigate = useNavigate();
+
+    const tabSize = useMediaQuery("(min-width: 768px) and (max-width: 900px)");
+    const numberOfCards = tabSize ? 2 : 3;
+
     return (
         <div
             onMouseEnter={() => handleCourses(true)}
@@ -98,7 +103,7 @@ const CoursesDropdown = () => {
                                                 </h3>
                                                 <div className="flex flex-row gap-2">
                                                     {
-                                                        dummyCourse.slice(0, 3).map((course) => (
+                                                        dummyCourse.slice(0, numberOfCards).map((course) => (
                                                             <CourseCard
                                                                 key={course.id}
                                                                 onClick={() => handleCourses(false)}
