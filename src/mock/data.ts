@@ -1,8 +1,18 @@
 import { Mock } from '@/assets';
 import mock from '@/assets/mock';
-import { CourseType, CourseDetail, CategoryType } from '@/types/course';
+import {
+  CourseType,
+  CourseDetail,
+  CategoryType,
+  CourseHistory,
+} from '@/types/course';
 import { ModuleType } from '@/types/module';
-import { TestType, TestDetailType, TestQuestion } from '@/types/test';
+import {
+  TestType,
+  TestDetailType,
+  TestQuestion,
+  TestHistory,
+} from '@/types/test';
 import { UserType } from '@/types/user';
 
 export const dummyCourse: CourseType[] = [
@@ -570,6 +580,72 @@ export const mockUsers: UserType[] = [
     id: 1,
     name: 'John Doe',
     email: 'john@gmail.com',
-    password: "testtest",
+    password: 'testtest',
+  },
+];
+
+export const courses: CourseHistory[] = [
+  {
+    id: 1,
+    title: 'LokSewa Preparation 1',
+    nextModule: 'How to crack Loksewa 101',
+    lastModule: 'Introduction',
+    progress: 70,
+  },
+  {
+    id: 2,
+    title: 'LokSewa Preparation 2',
+    nextModule: 'Advanced Strategies ',
+    lastModule: 'Module 2',
+    progress: 50,
+  },
+  {
+    id: 3,
+    title: 'LokSewa Preparation 3',
+    nextModule: 'Practice Techniques',
+    lastModule: 'Module 3',
+    progress: 90,
+  },
+  {
+    id: 4,
+    title: 'LokSewa Preparation 4',
+    nextModule: 'Exam Day Tips',
+    lastModule: 'Module 4',
+    progress: 30,
+  },
+];
+
+export const tests: TestHistory[] = [
+  {
+    id: 1,
+    title: 'IELTS Reading Mock Test 1',
+    date: '2023-08-30',
+    score: 80,
+    totalQuestions: 50,
+    duration: '3 hours',
+  },
+  {
+    id: 2,
+    title: 'IELTS Reading Mock Test 2',
+    date: '2023-08-25',
+    score: 90,
+    totalQuestions: 40,
+    duration: '2.5 hours',
+  },
+  {
+    id: 3,
+    title: 'IELTS Reading Mock Test 3',
+    date: '2023-08-20',
+    score: 75,
+    totalQuestions: 60,
+    duration: '3.5 hours',
+  },
+  {
+    id: 4,
+    title: 'IELTS Reading Mock Test 4',
+    date: '2023-08-15',
+    score: 85,
+    totalQuestions: 55,
+    duration: '3 hours',
   },
 ];

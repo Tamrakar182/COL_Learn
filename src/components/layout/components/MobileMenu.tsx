@@ -10,17 +10,20 @@ import {
 import { IoMenu } from "react-icons/io5";
 import { Button } from "@/components/ui/button";
 import { useNavigate } from "react-router-dom";
+import { useAuth } from "@/context";
 
-const navItems = {
-    Home: "/",
-    Browse: "/browse",
-    Tests: "/browse/tests",
-    Courses: "/browse/courses",
-    Account: "/sign-in",
-};
 
 export function MobileMenu() {
     const navigate = useNavigate();
+    const { authenticated } = useAuth();
+
+    const navItems = {
+        Home: "/",
+        Browse: "/browse",
+        Tests: "/browse/tests",
+        Courses: "/browse/courses",
+        Account: authenticated ? "/dashboard" : "/sign-in",
+    };
 
     return (
         <Sheet>

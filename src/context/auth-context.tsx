@@ -4,6 +4,7 @@ import { UserType } from '@/types/user';
 import { useToast } from '@/components/ui/use-toast';
 import { useNavigate } from 'react-router-dom';
 import { AuthContextType } from '@/types/context';
+import LoadingScreen from '@/components/loading';
 
 type Props = {
     children: React.ReactNode;
@@ -82,6 +83,10 @@ export function AuthProvider({ children }: Props) {
         }),
         [user, loading, signIn, register, logout]
     );
+
+    if (loading) {
+        return <LoadingScreen />
+    }
 
     return (
         <AuthContext.Provider value={memoizedValue}>

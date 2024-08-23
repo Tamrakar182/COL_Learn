@@ -19,5 +19,8 @@ export { default as ForgotPage } from "./Forgot"
 export { default as VerifyPage } from "./Verify"
 export { default as ChangePasswordPage } from "./ChangePassword"
 
+// profile section
+export { default as DashboardPage } from "./Dashboard"
+
 // others
 export { default as NotFoundPage } from "./NotFound"

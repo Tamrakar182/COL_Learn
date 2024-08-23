@@ -22,3 +22,12 @@ export interface TestQuestion {
     answer: string;
     explanation: string;
 }
+
+export interface TestHistory {
+    id: number;
+    title: string;
+    date: string;
+    score: number;
+    totalQuestions: number;
+    duration: string;
+}

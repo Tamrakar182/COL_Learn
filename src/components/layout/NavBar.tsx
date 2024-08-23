@@ -8,10 +8,13 @@ import CoursesDropdown from './components/CoursesDropdown';
 import TestsDropdown from './components/TestsDropdown';
 import { MobileMenu } from './components/MobileMenu';
 import clsx from 'clsx';
+import { useAuth } from '@/context';
+import AccountPopover from './components/AccountPopover';
 
 const Navbar = () => {
     const navigate = useNavigate();
     const [isSearchExpanded, setIsSearchExpanded] = useState(false);
+    const { authenticated } = useAuth();
 
     const handleSearchClick = () => {
         setIsSearchExpanded(!isSearchExpanded);
@@ -54,17 +57,26 @@ const Navbar = () => {
                         className='bg-slate-100 text-black placeholder-lime-950 focus:none focus:outline-none'
                     />
                 </div>
-                <div className='flex items-center flex-row gap-6'>
+                <div className='flex items-center flex-row gap-4'>
                     {!isSearchExpanded ?
                         <FaSearch
                             onClick={handleSearchClick}
-                            className='w-6 md:w-12 md:h-12 h-6 cursor-pointer'
+                            className='w-6 h-6 cursor-pointer'
                         /> :
                         <FaXmark
                             onClick={handleSearchClick}
-                            className='w-6 md:w-12 md:h-12 h-6 cursor-pointer'
+                            className='w-6 h-6 cursor-pointer'
                         />}
-                    <Button onClick={() => navigate("/sign-in")} variant="outline" className='hidden md:flex w-full h-full'>Sign In</Button>
+                    {authenticated ? (
+                        <AccountPopover />
+                    ) : (
+                        <Button
+                            onClick={() => navigate("/sign-in")}
+                            variant="outline"
+                            className='hidden md:flex w-full h-full'>
+                            Sign In
+                        </Button>
+                    )}
                     <MobileMenu />
                 </div>
             </div>
