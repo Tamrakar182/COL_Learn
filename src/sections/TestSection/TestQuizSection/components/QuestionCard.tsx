@@ -44,12 +44,11 @@ function QuestionCard({ activeQuestion, activeQuestionData, answers, handleAnswe
     return (
         <Card className="w-full space-y-4">
             <CardHeader>
-                <CardTitle className="text-xl font-bold italic text-gray-500">
-                    Question No. {activeQuestion + 1}
+                <CardTitle className="text-xl font-bold">
+                    {activeQuestionData.question}
                 </CardTitle>
             </CardHeader>
             <CardContent>
-                <p className="text-xl font-bold pb-4">{activeQuestionData.question}</p>
                 <AnswerGroup
                     options={activeQuestionData.options}
                     onSelect={handleAnswerSelect}

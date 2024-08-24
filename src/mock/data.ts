@@ -88,109 +88,6 @@ export const dummyCourse: CourseType[] = [
   },
 ];
 
-export const dummyModules: ModuleType[] = [
-  {
-    id: '1',
-    name: 'Introduction',
-    description:
-      'This module introduces you to cloud computing. It covers things such as cloud concepts, deployment models, and understanding shared responsibility in the cloud.',
-    time: '10 mins',
-    completed: true,
-    units: [
-      {
-        id: '1',
-        time: '3 mins',
-        title: 'Introduction to Fundamentals',
-      },
-      {
-        id: '2',
-        time: '4 mins',
-        title: 'Cloud Computing Models',
-      },
-      {
-        id: '3',
-        time: '3 mins',
-        title: 'Shared Responsibility in the Cloud',
-      },
-    ],
-  },
-  {
-    id: '2',
-    name: 'Networking',
-    description:
-      'This module covers basic networking concepts including types of networks, protocols, and an introduction to the OSI model.',
-    time: '15 mins',
-    completed: false,
-    units: [
-      {
-        id: '1',
-        time: '5 mins',
-        title: 'Networking Basics',
-      },
-      {
-        id: '2',
-        time: '5 mins',
-        title: 'Types of Networks',
-      },
-      {
-        id: '3',
-        time: '5 mins',
-        title: 'Introduction to the OSI Model',
-      },
-    ],
-  },
-  {
-    id: '3',
-    name: 'Cybersecurity',
-    description:
-      'Learn about the fundamentals of cybersecurity, including key concepts like threats, vulnerabilities, and risk management.',
-    time: '12 mins',
-    completed: true,
-    units: [
-      {
-        id: '1',
-        time: '4 mins',
-        title: 'Understanding Cybersecurity',
-      },
-      {
-        id: '2',
-        time: '4 mins',
-        title: 'Common Threats and Vulnerabilities',
-      },
-      {
-        id: '3',
-        time: '4 mins',
-        title: 'Introduction to Risk Management',
-      },
-    ],
-  },
-  {
-    id: '4',
-    name: 'Data Storage',
-    description:
-      'This module explores the basics of data storage solutions, covering topics such as storage types, RAID configurations, and data backup strategies.',
-    completed: false,
-    time: '20 mins',
-    units: [
-      {
-        id: '1',
-        time: '7 mins',
-        title: 'Introduction to Data Storage',
-      },
-      {
-        id: '2',
-        time: '7 mins',
-        title: 'Understanding RAID Configurations',
-      },
-      {
-        id: '3',
-        time: '6 mins',
-        title: 'Data Backup Strategies',
-      },
-    ],
-  },
-];
-
 export const categories = [
   {
     title: 'LokSewa Preparation',
@@ -233,6 +130,138 @@ export const dummyCategories: CategoryType[] = [
   },
 ];
 
+export const dummyModules: ModuleType[] = [
+  {
+    id: '1',
+    name: 'Introduction',
+    description: 'This module introduces the core concepts of cloud computing.',
+    time: '10 mins',
+    completed: true,
+    units: [
+      {
+        id: '1',
+        time: '3 mins',
+        title: 'Introduction to Cloud Computing',
+        type: 'content',
+        content: `
+        <h2>Introduction to Networking</h2>
+        <p>Networking is the practice of connecting computers and other devices to share resources and information. It plays a crucial role in modern communication systems.</p>
+        
+        <h3>Key Components</h3>
+        <ul>
+            <li><strong>Router:</strong> Directs data between different networks.</li>
+            <li><strong>Switch:</strong> Connects devices within the same network and manages data traffic.</li>
+            <li><strong>Firewall:</strong> Protects the network by monitoring and controlling incoming and outgoing traffic.</li>
+        </ul>
+
+        <h3>Types of Networks</h3>
+        <ol>
+            <li><strong>LAN (Local Area Network):</strong> A network that covers a small geographic area, such as a home or office.</li>
+            <li><strong>WAN (Wide Area Network):</strong> A network that spans large geographical areas, often connecting multiple LANs.</li>
+            <li><strong>VPN (Virtual Private Network):</strong> A secure connection over the internet that allows users to access private networks remotely.</li>
+        </ol>
+
+        <blockquote>Networking is not about how many people you know; it's about how many people you can help.</blockquote>
+
+        <p><em>Understanding these basics will help you build and maintain networks effectively.</em></p>
+    `,
+      },
+      {
+        id: '2',
+        time: '4 mins',
+        title: 'Cloud Deployment Models',
+        type: 'video',
+        videoId: 'rokGy0huYEA',
+      },
+      {
+        id: '3',
+        time: '3 mins',
+        title: 'Cloud Knowledge Check',
+        type: 'quiz',
+        quiz: [
+          {
+            question: 'What is cloud computing?',
+            options: ['A', 'B', 'C', 'D'],
+            correctAnswer: 'A',
+          },
+        ],
+      },
+    ],
+  },
+  {
+    id: '2',
+    name: 'Networking',
+    description: 'This module covers networking concepts and the OSI model.',
+    time: '15 mins',
+    completed: false,
+    units: [
+      {
+        id: '1',
+        time: '5 mins',
+        title: 'Networking Basics',
+        type: 'content',
+        content: `
+        <h2>Introduction to Networking</h2>
+        <p>Networking is the practice of connecting computers and other devices to share resources and information. It plays a crucial role in modern communication systems.</p>
+        
+        <h3>Key Components</h3>
+        <ul>
+            <li><strong>Router:</strong> Directs data between different networks.</li>
+            <li><strong>Switch:</strong> Connects devices within the same network and manages data traffic.</li>
+            <li><strong>Firewall:</strong> Protects the network by monitoring and controlling incoming and outgoing traffic.</li>
+        </ul>
+
+        <h3>Types of Networks</h3>
+        <ol>
+            <li><strong>LAN (Local Area Network):</strong> A network that covers a small geographic area, such as a home or office.</li>
+            <li><strong>WAN (Wide Area Network):</strong> A network that spans large geographical areas, often connecting multiple LANs.</li>
+            <li><strong>VPN (Virtual Private Network):</strong> A secure connection over the internet that allows users to access private networks remotely.</li>
+        </ol>
+
+        <blockquote>Networking is not about how many people you know; it's about how many people you can help.</blockquote>
+
+        <p><em>Understanding these basics will help you build and maintain networks effectively.</em></p>
+    `,
+      },
+      {
+        id: '2',
+        time: '5 mins',
+        title: 'Types of Networks',
+        type: 'video',
+        videoId: 'rokGy0huYEA',
+      },
+      {
+        id: '3',
+        time: '5 mins',
+        title: 'Networking Knowledge Check',
+        type: 'quiz',
+        quiz: [
+          {
+            question: 'What are the main types of networks?',
+            options: ['LAN', 'WAN', 'MAN', 'All of the above'],
+            correctAnswer: 'All of the above',
+          },
+          {
+            question: 'What are the main types of networks?',
+            options: ['LAN', 'WAN', 'MAN', 'All of the above'],
+            correctAnswer: 'All of the above',
+          },
+          {
+            question: 'What are the main types of networks?',
+            options: ['LAN', 'WAN', 'MAN', 'All of the above'],
+            correctAnswer: 'All of the above',
+          },
+          {
+            question: 'What are the main types of networks?',
+            options: ['LAN', 'WAN', 'MAN', 'All of the above'],
+            correctAnswer: 'All of the above',
+          },
+        ],
+      },
+    ],
+  },
+];
+
 export const dummyCourseDetail: CourseDetail = {
   id: '1',
   title: 'Introduction to Cloud Computing',
@@ -267,7 +296,7 @@ export const dummyCourseDetail: CourseDetail = {
   duration: '6 hours',
   image: mock.mock1,
   modules: dummyModules,
-  nextModule: dummyModules[2].id,
+  nextModule: dummyModules[1].id,
   teacher: 'Dr. Raj Shyam Sherpa',
 };
 

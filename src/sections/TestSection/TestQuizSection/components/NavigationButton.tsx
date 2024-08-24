@@ -12,13 +12,13 @@ const NavigationButtons = ({ activeQuestion, handleQuestionSelect, questionsLeng
             disabled={activeQuestion === 0}
             onClick={() => handleQuestionSelect(Math.max(activeQuestion - 1, 0))}
         >
-            Prev
+            Previous Question
         </Button>
         <Button
             disabled={activeQuestion === questionsLength - 1}
             onClick={() => handleQuestionSelect(Math.min(activeQuestion + 1, questionsLength - 1))}
         >
-            Next
+            Next Question
         </Button>
     </div>
 );

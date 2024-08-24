@@ -31,7 +31,7 @@ function ExamSummary({
             <div className="grid grid-cols-1 md:grid-cols-4 gap-4 mt-6">
                 <div className="bg-green-50 p-4 rounded-lg text-center">
                     <div className="flex justify-center items-center mb-2">
-                        <span className="text-4xl font-bold">{(score * 1.4).toFixed(1)}</span>
+                        <span className="text-4xl font-bold">{(score * QUESTION_WEIGHT).toFixed(1)}</span>
                         <span className="text-sm text-gray-500">/ {totalMarks.toFixed(1)}</span>
                     </div>
                     <p className="text-green-600 font-semibold">Marks obtained</p>
@@ -55,7 +55,7 @@ function ExamSummary({
 
                 <div className="bg-indigo-50 p-4 rounded-lg text-center">
                     <div className="flex justify-center items-center mb-2">
-                        <span className="text-4xl font-bold">{(score * 1.4).toFixed(1)}</span>
+                        <span className="text-4xl font-bold">{(score * QUESTION_WEIGHT).toFixed(1)}</span>
                         <span className="text-sm text-gray-500">/ {totalMarks.toFixed(1)}</span>
                     </div>
                     <p className="text-indigo-600 font-semibold">Total Marks Obtained</p>

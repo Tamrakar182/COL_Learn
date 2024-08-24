@@ -11,26 +11,19 @@ interface Props {
 function QuestionSelection({ testDetails, answers, activeQuestion, setActiveQuestion }: Props) {
     return (
         <div className=" flex flex-col border rounded max-h-96">
-            <p className="px-4 pt-4 font-bold text-lg">
-                {testDetails.name}
-            </p>
-            <div className="px-4">
-                {testDetails.duration} • {testDetails.questions.length} Questions
-            </div>
-
-            <div className="bg-slate-200 py-4 my-2 w-full justify-evenly flex flex-row">
+            <div className="bg-slate-200 py-4 mb-2 w-full justify-evenly flex flex-row">
                 <div className="flex items-center flex-col gap-2">
-                    <p className="p-2 bg-green-400 rounded-full">
+                    <span className="rounded-xl font-bold mb-1 px-2 py-1 bg-green-700 text-md align-middle text-white min-w-max max-w-max">
                         {answers.filter((answer) => answer !== undefined).length}
-                    </p>
-                    <p>Answered</p>
+                    </span>
+                    <p className="font-bold text-green-700">Answered</p>
                 </div>
 
                 <div className="flex items-center flex-col gap-2">
-                    <p className="p-2 bg-slate-300 rounded-full">
+                    <span className="rounded-xl font-bold mb-1 px-2 py-1 bg-slate-400 text-md align-middle text-white min-w-max max-w-max">
                         {answers.filter((answer) => answer === undefined).length}
-                    </p>
-                    <p>Unanswered</p>
+                    </span>
+                    <p className="font-bold text-slate-400">Unanswered</p>
                 </div>
             </div>
 

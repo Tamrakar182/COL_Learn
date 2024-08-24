@@ -58,7 +58,10 @@ const CourseDetailsSection = ({ course }: Props) => {
                     </div>
 
                     <div className="grid md:grid-cols-2 gap-4 mt-10">
-                        <CourseModules modules={course.modules} />
+                        <CourseModules
+                            courseId={course.id}
+                            modules={course.modules}
+                        />
                         <div className="md:flex flex-col hidden border h-fit p-4 mt-11 items-center justify-center">
                             <div className='flex flex-row gap-4'>
                                 <span>Progress: </span>
@@ -68,11 +71,15 @@ const CourseDetailsSection = ({ course }: Props) => {
                             </div>
                             {nextModule && (
                                 <div className="text-center mb-4">
-                                    <h2 className="text-xl">Next Course:</h2>
+                                    <h2 className="text-xl">Next Module:</h2>
                                     <h2 className="text-xl font-bold">{nextModule.name}</h2>
                                     <p className="text-sm">Duration: {nextModule.time}</p>
                                 </div>)}
-                            <Button className="text-xl bg-[#3b82f6] hover:bg-[#3b83f672] rounded-none py-8">
+                            <Button
+                                onClick={() => {
+                                    navigate(`/browse/courses/${course.id}/module/${course.nextModule}`);
+                                }}
+                                className="text-xl bg-[#3b82f6] hover:bg-[#3b83f672] py-8">
                                 Continue
                             </Button>
                         </div>
@@ -81,7 +88,12 @@ const CourseDetailsSection = ({ course }: Props) => {
                     <RelatedCourses />
                 </div>
             </Container>
-            <Button className="md:hidden bg-[#3b82f6] hover:bg-[#3b83f672] text-3xl rounded-none py-8 w-full fixed bottom-0">
+            <Button
+                onClick={() => {
+                    navigate(`/browse/courses/${course.id}/module/${course.nextModule}`);
+                }}
+                className="md:hidden bg-[#3b82f6] hover:bg-[#3b83f672] text-3xl rounded-none py-8 w-full fixed bottom-0"
+            >
                 Continue
             </Button>
         </>

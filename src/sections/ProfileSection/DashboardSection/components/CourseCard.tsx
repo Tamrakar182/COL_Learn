@@ -9,7 +9,7 @@ interface Props {
 
 function CourseCard({ course }: Props) {
     return (
-        <Card key={course.id} className="h-full flex flex-col items-center justify-between">
+        <Card key={course.id} className="h-full w-full flex flex-col justify-between">
             <CardHeader>
                 <CardTitle className="text-lg">{course.title}</CardTitle>
             </CardHeader>

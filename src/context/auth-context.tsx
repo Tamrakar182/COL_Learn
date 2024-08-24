@@ -36,7 +36,7 @@ export function AuthProvider({ children }: Props) {
                 description: 'Login success',
                 variant: "success",
             });
-            navigate('/');
+            navigate('/dashboard');
         } else {
             toast({
                 title: 'Error',
@@ -63,7 +63,7 @@ export function AuthProvider({ children }: Props) {
             description: 'Account created successfully',
             variant: "success",
         });
-        navigate('/');
+        navigate('/login');
     }, [toast, navigate]);
 
     const logout = useCallback(() => {

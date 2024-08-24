@@ -4,12 +4,14 @@ import { FiClock } from "react-icons/fi";
 import clsx from 'clsx';
 import { ModuleType } from '@/types/module';
 import { TiTick } from "react-icons/ti";
+import { Link } from 'react-router-dom';
 
 interface Props {
      item: ModuleType;
+     courseId: string;
 }
 
-const ModuleItem = ({ item }: Props) => {
+const ModuleItem = ({ item, courseId }: Props) => {
      const [isOpen, setIsOpen] = useState(false);
 
      const handleToggle = () => {
@@ -42,9 +44,12 @@ const ModuleItem = ({ item }: Props) => {
                     <div className="flex flex-col gap-2">
                          {item.units.map(unit => (
                               <div key={unit.id} className="border-b px-4 py-4 flex flex-col gap-2">
-                                   <p className="text-base font-medium w-fit underline-animation cursor-pointer">
+                                   <Link
+                                        to={`/browse/courses/${courseId}/module/${item.id}/unit/${unit.id}`}
+                                        className="text-base font-medium w-fit underline-animation cursor-pointer"
+                                   >
                                         {unit.title}
-                                   </p>
+                                   </Link>
                                    <div className="flex flex-row items-center gap-2">
                                         <FiClock />
                                         <p className="text-sm text-[#484848]">{unit.time}</p>
@@ -57,13 +62,13 @@ const ModuleItem = ({ item }: Props) => {
      );
 };
 
-const CourseModules = ({ modules }: { modules: ModuleType[] }) => {
+const CourseModules = ({ modules, courseId }: { modules: ModuleType[], courseId: string }) => {
      return (
           <div>
                <h1 className='text-3xl font-bold pb-2'>Modules Available:</h1>
                <ul className="basis-1/2">
                     {modules.map((item, index) => (
-                         <ModuleItem key={index} item={item} />
+                         <ModuleItem key={index} item={item} courseId={courseId} />
                     ))}
                </ul>
           </div>

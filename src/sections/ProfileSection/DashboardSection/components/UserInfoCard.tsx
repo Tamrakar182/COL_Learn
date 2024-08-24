@@ -1,36 +1,40 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { useAuth } from "@/context";
-import { Button } from "@/components/ui/button";
+import { User, Mail } from "lucide-react";
 
 function UserInfoCard() {
-    const { user, logout } = useAuth();
+    const { user } = useAuth();
 
     if (user === null) {
         return null;
     }
 
     return (
-        <Card className="col-span-2 lg:col-span-1">
-            <CardHeader className="flex flex-row justify-between items-center">
-                <CardTitle>User Info</CardTitle>
-                <Button variant="outline" className="!mt-0">Edit</Button>
+        <Card className="col-span-2 lg:col-span-1 flex flex-col h-full">
+            <CardHeader className="bg-gradient-to-r from-purple-500 to-pink-500 text-white rounded-t-lg">
+                <CardTitle className="text-center">User Profile</CardTitle>
             </CardHeader>
-            <CardContent className="flex flex-col items-center space-y-2">
-                <div className="flex sm:flex-row w-full flex-col items-center space-x-4">
-                    <Avatar className="h-20 w-20">
-                        <AvatarImage src={user.avatar} alt="User avatar" />
+            <CardContent className="flex-grow flex flex-col justify-between items-center bg-gradient-to-r rounded-b-lg from-purple-100 to-pink-100 p-4">
+                <div className="flex flex-col items-center gap-4">
+                    <Avatar className="w-20 h-20">
+                        <AvatarImage src={user.avatar} alt={user.name} />
                         <AvatarFallback>{user.name.charAt(0)}</AvatarFallback>
                     </Avatar>
-                    <div>
-                        <p className="text-lg font-medium">{user.name}</p>
-                        <p className="text-sm text-muted-foreground">{user.email}</p>
+                    <div className="space-y-2 w-full">
+                        <div className="flex items-center">
+                            <User className="mr-2 h-4 w-4 text-gray-500 flex-shrink-0" />
+                            <span className="font-semibold truncate">{user.name}</span>
+                        </div>
+                        <div className="flex items-center">
+                            <Mail className="mr-2 h-4 w-4 text-gray-500 flex-shrink-0" />
+                            <span className="truncate">{user.email}</span>
+                        </div>
                     </div>
                 </div>
-                <Button variant="destructive" className="w-full" onClick={() => logout()}>Log Out</Button>
             </CardContent>
         </Card>
     )
 }
 
-export default UserInfoCard
+export default UserInfoCard;
